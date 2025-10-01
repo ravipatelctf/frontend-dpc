@@ -42,7 +42,7 @@ export default function Login() {
                 <h2 className="text-center">Login Form</h2>
                 <input type="text" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} className="form-control"/><br />
                 <input type="password" placeholder="Enter Password" onChange={(event) => setPassword(event.target.value)} className="form-control"/><br />
-                <button type="submit">Login</button>
+                <button type="submit" className="btn btn-dark fw-bold">Login</button>
             </form>
         </div>
         <Footer />

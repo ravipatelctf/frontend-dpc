@@ -3,10 +3,25 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useFetchGet } from "../useFetchGet";
 import { baseUrl } from "../api";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
+
 
 export default function Events() {
     const {data, error, fetchData} = useFetchGet(`${baseUrl}/events`);
-    console.log(data);
+    const navigate = useNavigate();
+
+    const token = sessionStorage.getItem("token");
+
+    useEffect(() => {
+        if (!token) {
+            toast.warn("Please login...");
+            navigate("/login")
+            return;
+        }
+    }, [token]);
+
     return (
         <>
             <Header />
