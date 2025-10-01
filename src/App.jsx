@@ -17,7 +17,7 @@ export default function App() {
         <Route path="/events" element={<Events />} />
       </Routes>
     </Router>
-    <ToastContainer position="top-center" autoClose={2000} />
+    <ToastContainer position="top-center" autoClose={1500} />
     </>
   );
 }

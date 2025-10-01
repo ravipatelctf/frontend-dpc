@@ -19,6 +19,8 @@ export default function Login() {
             return;
         }
 
+        toast.info("Logging in...");
+
         const payload = {
             "email": email,
             "password": password
@@ -26,9 +28,7 @@ export default function Login() {
 
         try {
             const response = await loginUser(payload);
-            if (response) {
-                navigate("/events");
-            }
+            navigate("/events");
         } catch (error) {
             toast.error("User not found!");
         }
@@ -42,7 +42,7 @@ export default function Login() {
                 <h2 className="text-center">Login Form</h2>
                 <input type="text" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} className="form-control"/><br />
                 <input type="password" placeholder="Enter Password" onChange={(event) => setPassword(event.target.value)} className="form-control"/><br />
-                <button type="submit" className="btn btn-dark fw-bold">Login</button>
+                <div className="d-flex justify-content-center"><button type="submit" className="btn btn-dark fw-bold">Login</button></div>
             </form>
         </div>
         <Footer />

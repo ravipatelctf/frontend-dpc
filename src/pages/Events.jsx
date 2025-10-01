@@ -28,6 +28,7 @@ function CreateNewEvent({setRefresh}) {
             "description": description
         }
         try {
+            toast.info("Creating event...");
             const response = await fetchData(payload);
             setRefresh(pv => pv + 1);
             toast.info("Event created successfully.");
@@ -45,7 +46,7 @@ function CreateNewEvent({setRefresh}) {
         <div>
             <form onSubmit={(event) => handleCreateNewTask(event)}>
             <input type="text" placeholder="Title" required value={name} onChange={(event) => setName(event.target.value)} className="form-control mb-2"/>
-            <input type="datetime-local" placeholder="Date and Title" required value={dateTime} onChange={(event) => setDateTime(event.target.value)} className="form-control mb-2"/>
+            <input type="datetime-local" required value={dateTime} onChange={(event) => setDateTime(event.target.value)} className="form-control mb-2"/>
             <input type="text" placeholder="Location" required value={location} onChange={(event) => setLocation(event.target.value)} className="form-control mb-2"/>
             <textarea type="text" placeholder="Description" value={description} onChange={(event) => setDescription(event.target.value)} className="form-control mb-2"></textarea>
             <div className="text-center">
@@ -92,7 +93,12 @@ export default function Events() {
                                 <div className="card-body">
                                     <h3 className="">{event?.name}</h3>
                                     <p><strong>Location: </strong>{event?.location}</p>
-                                    <p className=""><strong>Time: </strong>{new Date(event?.dateTime).toTimeString()}</p>
+                                    <p className=""><strong>Date & Time: </strong>
+                                        {new Date(event?.dateTime).toLocaleString("en-US", {
+                                            dateStyle: "medium",
+                                            timeStyle: "short"
+                                        })}
+                                    </p>
                                     <p className="card-text">{event?.description}</p>
                                 </div>
                             </div>

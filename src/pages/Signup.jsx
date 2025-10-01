@@ -19,7 +19,9 @@ export default function Signup() {
         if (!name || !email || !password) {
             return;
         }
-
+        
+        toast.info("Signup in progress....");
+        
         const payload = {
             "name": name,
             "email": email,
@@ -28,9 +30,7 @@ export default function Signup() {
 
         try {
             const response = await signupUser(payload);
-            if (response) {
-                navigate("/login");
-            }
+            navigate("/login");
         } catch (error) {
             toast.error("signup failed...");
         }
@@ -45,7 +45,7 @@ export default function Signup() {
                 <input type="text" placeholder="Enter name" onChange={(event) => setName(event.target.value)} className="form-control"/><br />
                 <input type="text" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} className="form-control"/><br />
                 <input type="password" placeholder="Enter Password" onChange={(event) => setPassword(event.target.value)} className="form-control"/><br />
-                <button type="submit">Signup</button>
+                <div className="d-flex justify-content-center"><button type="submit" className="btn btn-dark">Signup</button></div>
             </form>
         </div>
         <Footer />
