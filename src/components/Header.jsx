@@ -18,19 +18,20 @@ export default function Header() {
 
     function handleLogout() {
         sessionStorage.removeItem("token");
+        sessionStorage.removeItem("email");
         navigate("/login");
     }
 
     return (
         <>
-            <header className="py-4 bg-light">
+            <header className="py-3 bg-light">
                 <div className="container nav justify-content-between align-items-center">
-                    <h1 className="navbar-brand p-0 m-0 fw-bold">Mini Event Tracker</h1>
+                    <h1 className="navbar-brand p-0 m-0 fw-bold fs-3 fw-bold">Mini Event Tracker</h1>
                     <ul className="navbar nav p-0 m-0 gap-2">
                         {
                             isLoggedIn ? (
                                 <li className="nav-item">
-                                    <button onClick={(event) => handleLogout(event)} className="nav-link fw-bold border rounded text-light py-1 bg-dark">Logout</button>
+                                    <button onClick={(event) => handleLogout(event)} className="nav-link fw-bold border rounded text-light py-2 bg-dark">Logout</button>
                                 </li>
                             ) : (
                                 <>
