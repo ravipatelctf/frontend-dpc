@@ -1,5 +1,7 @@
 
-export const baseUrl = `http://localhost:3000`;
+// export const baseUrl = `http://localhost:3000`;
+export const baseUrl = `https://backend-dpc.vercel.app`;
+
 
 export async function signupUser(userData) {
     try {

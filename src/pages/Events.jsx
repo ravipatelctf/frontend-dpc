@@ -27,7 +27,6 @@ function CreateNewEvent({setRefresh}) {
             "location": location,
             "description": description
         }
-        console.log(payload);
         try {
             const response = await fetchData(payload);
             setRefresh(pv => pv + 1);
