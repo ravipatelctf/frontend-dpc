@@ -30,7 +30,7 @@ export default function Login() {
                 navigate("/events");
             }
         } catch (error) {
-            toast.error("login failed...");
+            toast.error("User not found!");
         }
     }
 

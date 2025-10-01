@@ -1,7 +1,4 @@
 
-import { toast } from "react-toastify";
-
-
 export const baseUrl = `http://localhost:3000`;
 
 export async function signupUser(userData) {
@@ -39,6 +36,7 @@ export async function loginUser(userData) {
         }
         const {token} = await response.json();
         sessionStorage.setItem("token", token);
+        sessionStorage.setItem("email", userData["email"]);
         return token;
     } catch (error) {
         throw error;
